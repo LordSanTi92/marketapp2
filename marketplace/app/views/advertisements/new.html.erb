@@ -1,0 +1,27 @@
+<% provide(:title,'New advertisement') %>
+  <div class="container">
+    <%= link_to root_path do %>
+    <button class="back btn btn-default">Back to list of advertisements</button>
+  <% end %>
+  <h2>Create new advertisement</h2>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= render "shared/error_messages"%>
+        <%= form_for(@adv, url:advertisements_path) do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+
+        <%= f.label :content %>
+        <%= f.text_area :content, class: 'form-control' %>
+
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :image %>
+        <%= f.file_field :image, class: 'form-control' %>
+
+        <%= f.submit "Add advertisement", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
